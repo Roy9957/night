@@ -1,7 +1,7 @@
 
 import React from "react";
-import { Menu } from "lucide-react";
-import { motion } from "framer-motion";
+import { Menu, User, Folder, Mail } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface NavigationMenuProps {
   onSelect: (option: string) => void;
@@ -11,9 +11,21 @@ const NavigationMenu = ({ onSelect }: NavigationMenuProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const menuOptions = [
-    { id: 'features', label: 'Features' },
-    { id: 'about', label: 'About' },
-    { id: 'contact', label: 'Contact' }
+    { 
+      id: 'login', 
+      label: 'Login/Sign up',
+      icon: <User className="w-4 h-4" />
+    },
+    { 
+      id: 'projects', 
+      label: 'My Projects',
+      icon: <Folder className="w-4 h-4" />
+    },
+    { 
+      id: 'contact', 
+      label: 'Contact',
+      icon: <Mail className="w-4 h-4" />
+    }
   ];
 
   const handleOptionClick = (optionId: string) => {
@@ -43,10 +55,11 @@ const NavigationMenu = ({ onSelect }: NavigationMenuProps) => {
                 <motion.button
                   key={option.id}
                   onClick={() => handleOptionClick(option.id)}
-                  className="w-full px-4 py-2 text-left text-white hover:bg-purple-500/20 transition-colors"
+                  className="w-full px-4 py-2 text-left text-white hover:bg-purple-500/20 transition-colors flex items-center space-x-3"
                   whileHover={{ x: 5 }}
                 >
-                  {option.label}
+                  <span className="text-purple-400">{option.icon}</span>
+                  <span>{option.label}</span>
                 </motion.button>
               ))}
             </div>
