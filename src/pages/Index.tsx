@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import ParticleBackground from "@/components/ParticleBackground";
 import AnimatedCard from "@/components/AnimatedCard";
 import HeroSection from "@/components/HeroSection";
+import StatisticsSection from "@/components/StatisticsSection";
+import TestimonialSection from "@/components/TestimonialSection";
+import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
   const features = [
@@ -39,6 +42,21 @@ const Index = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent animated-gradient">
+              Why Choose Us
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Experience the perfect blend of functionality and aesthetics with our cutting-edge platform.
+            </p>
+          </motion.div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {features.map((feature, index) => (
               <AnimatedCard
@@ -50,6 +68,10 @@ const Index = () => {
             ))}
           </div>
         </motion.section>
+
+        <StatisticsSection />
+        <TestimonialSection />
+        <ContactSection />
       </main>
     </div>
   );

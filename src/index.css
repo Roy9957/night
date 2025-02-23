@@ -47,6 +47,22 @@
     background-size: 200%;
     animation: background-shine 2s linear infinite;
   }
+
+  .night-glow {
+    @apply relative;
+    &::after {
+      content: '';
+      @apply absolute inset-0 rounded-xl;
+      background: radial-gradient(circle at 50% 50%, rgba(123, 97, 255, 0.1) 0%, transparent 70%);
+      filter: blur(20px);
+    }
+  }
+
+  .star-field {
+    background-image: radial-gradient(circle at center, #ffffff 0%, transparent 0.1%);
+    background-size: 100px 100px;
+    animation: twinkle 3s infinite;
+  }
 }
 
 .stars {
@@ -59,10 +75,20 @@
   z-index: 0;
 }
 
-/* Add animation for fade-in elements */
-.fade-in {
-  animation: fadeIn 0.5s ease-out forwards;
-  opacity: 0;
+@keyframes twinkle {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
@@ -74,4 +100,12 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.animate-float-up {
+  animation: floatUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
 }
