@@ -8,6 +8,8 @@ import HeroSection from "@/components/HeroSection";
 import StatisticsSection from "@/components/StatisticsSection";
 import TestimonialSection from "@/components/TestimonialSection";
 import ContactSection from "@/components/ContactSection";
+import InteractiveFeatures from "@/components/InteractiveFeatures";
+import ShowcaseSection from "@/components/ShowcaseSection";
 
 const Index = () => {
   const features = [
@@ -69,6 +71,8 @@ const Index = () => {
           </div>
         </motion.section>
 
+        <InteractiveFeatures />
+        <ShowcaseSection />
         <StatisticsSection />
         <TestimonialSection />
         <ContactSection />
